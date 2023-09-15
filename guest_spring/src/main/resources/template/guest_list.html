@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<title>방명록 관리</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/guest.css">
+<link rel="icon" href="image/favicon-32x32.png">
+<script src="js/guest.js"></script>
+</head>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
+	<!-- container start-->
+	<div id="container"  >
+		<!-- header start -->
+		<div id="header" ><h1>
+	<a href="">방명록 [guest spring thymeleaf]</a>
+</h1></div>
+		<!-- header end -->
+		<!-- navigation start-->
+		<div id="navigation">
+	<p>
+		<strong>메 뉴</strong>
+	</p>
+	<ul>
+		<li><a href="guest_main">방명록홈</a></li>
+		<li><a href="guest_list">방명록리스트</a></li>
+		<li><a href="guest_write_form">방명록쓰기폼</a></li>
+	</ul>
+</div>
+		<!-- navigation end-->
+		<!-- wrapper content start -->
+		<div id="wrapper">
+			<div id="content">
+				<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td><br />
+							<table style="padding-left: 10px" border=0 cellpadding=0
+								cellspacing=0>
+								<tr>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리
+											- 리스트</b></td>
+								</tr>
+							</table>
+							<form name="f" method="post">
+
+								<table border="0" cellpadding="0" cellspacing="1" width="590"
+									bgcolor="BBBBBB">
+									<tr>
+										<td width=50 align=center bgcolor="E6ECDE" height="22">번호</td>
+										<td width=300 align=center bgcolor="E6ECDE">제목</td>
+										<td width=120 align=center bgcolor="E6ECDE">이름</td>
+										<td width=120 align=center bgcolor="E6ECDE">날짜</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">223</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=223" 
+										 	class="user">오늘도 한대 맞았다</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">어퍼컷!!!!!</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-11</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">221</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=221" 
+										 	class="user">f</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">d</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-10</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">185</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=185" 
+										 	class="user">웃고가세요 ㅎ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">웃자</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">184</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=184" 
+										 	class="user">dsfdfs</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">fdsd</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">181</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=181" 
+										 	class="user">kkk</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">kkk</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">163</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=163" 
+										 	class="user">1</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">12</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">160</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=160" 
+										 	class="user">a</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">1</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">159</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=159" 
+										 	class="user">수정</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">158</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=158" 
+										 	class="user">치킨 vs 삼겹살</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">1111</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">156</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=156" 
+										 	class="user">ㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">154</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=154" 
+										 	class="user">ㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">152</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=152" 
+										 	class="user">aaaaaaaaaaaaaaaaaaaaaaaaa</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">aaaaaaaaaa</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">150</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=150" 
+										 	class="user">ㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">148</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=148" 
+										 	class="user">rㄱㄱ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">rㄱㄱㄱㄱㄱㄱㄱ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">145</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=145" 
+										 	class="user">m</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">m</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">143</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=143" 
+										 	class="user">spring테스트</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">spring테스트</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">142</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=142" 
+										 	class="user">ㅇㅇㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅇㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">140</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=140" 
+										 	class="user">adsasdsad</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">afdsfds</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">139</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=139" 
+										 	class="user">s</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">s</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">138</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=138" 
+										 	class="user">트</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">크</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">135</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=135" 
+										 	class="user">d</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">d</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">132</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=132" 
+										 	class="user">ㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">131</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=131" 
+										 	class="user">ㅇㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅇㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">130</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=130" 
+										 	class="user">ss</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ss</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">129</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=129" 
+										 	class="user">a</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">a</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">128</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=128" 
+										 	class="user">ㄴㅁㅇㅎㄻㅇㅎ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">1111</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">127</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=127" 
+										 	class="user">sdfa</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">adf</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">126</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=126" 
+										 	class="user">짱짱</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">강사님</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">125</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=125" 
+										 	class="user">대한민국 vs 콜럼비아</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">122</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=122" 
+										 	class="user">동굴보이스</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">강사님</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">121</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=121" 
+										 	class="user">ㅎㅎ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">질문있습니다</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">120</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=120" 
+										 	class="user">강사님특 :</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">상남자</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">119</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=119" 
+										 	class="user">야옹</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">강아지는</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">117</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=117" 
+										 	class="user">ahk</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ahk</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">115</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=115" 
+										 	class="user">강남맛집 추천좀..</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">크크</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">113</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=113" 
+										 	class="user">asd</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">asd</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">111</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=111" 
+										 	class="user">강사님 최고!!</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">예@</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">108</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=108" 
+										 	class="user">ㅁㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ad</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">107</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=107" 
+										 	class="user">곰돌이</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">곰돌이</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">92</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=92" 
+										 	class="user">1234</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">이건</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">91</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=91" 
+										 	class="user">ㅇㅁㅇㅁㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁㄴㅇㅁ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">90</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=90" 
+										 	class="user">4ㅁㄴㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁㄴ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">89</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=89" 
+										 	class="user">4</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">1</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">86</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=86" 
+										 	class="user">3ㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">2</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">85</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=85" 
+										 	class="user">2</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">21</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">84</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=84" 
+										 	class="user">1</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">1</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">83</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=83" 
+										 	class="user">11</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">11</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">82</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=82" 
+										 	class="user">ㅇㄴㅁㅁㄴㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅁㅇㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">81</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=81" 
+										 	class="user">ㅁㄴㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅁㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">80</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=80" 
+										 	class="user">ㅁㄴㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅁㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">79</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=79" 
+										 	class="user">ㅁㄴㅇ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅁㅇ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">78</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=78" 
+										 	class="user">ㄹㄴㅇㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁㄴㅇㄹ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">52</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=52" 
+										 	class="user">ㄹㄴㅇㅁ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅁㅇㄹ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">50</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=50" 
+										 	class="user">ㄴㅇㅁㄹ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅇㅁㄹ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">49</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=49" 
+										 	class="user">ㅇㄴㅁㄹ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅇㄴㅁㄹ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">48</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=48" 
+										 	class="user">ㄴㅇㅁㄹ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅁㅇㄹ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">47</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=47" 
+										 	class="user">ㄴㅇㅁㄹ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴㅇㅁㄹ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">46</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=46" 
+										 	class="user">ㅇㄴㅁㄹ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅁㅇㄴㄹㄴㅇㅁ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">45</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=45" 
+										 	class="user">ㅊㅌㅋㅍ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㅌㅊㅋㅍ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">44</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=44" 
+										 	class="user">f</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">f</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">43</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=43" 
+										 	class="user">ㄴ</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">ㄴ</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">40</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=40" 
+										 	class="user">s</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">s</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">25</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=25" 
+										 	class="user">3</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">맵핑</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">24</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=24" 
+										 	class="user">3</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">맵핑</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-07</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">21</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=21" 
+										 	class="user">4</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">되나?</td>
+										<td width=120 align=center bgcolor="ffffff">2023-08-30</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">14</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=14" 
+										 	class="user">456</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">바로보여져</td>
+										<td width=120 align=center bgcolor="ffffff">2023-08-11</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">9</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=9" 
+										 	class="user">내가옴</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">텟중</td>
+										<td width=120 align=center bgcolor="ffffff">2023-08-10</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">8</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=8" 
+										 	class="user">내가옴</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">텟중</td>
+										<td width=120 align=center bgcolor="ffffff">2023-08-10</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">6</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=6" 
+										 	class="user">바뀔것이야</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">다시한번</td>
+										<td width=120 align=center bgcolor="ffffff">2023-07-12</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">4</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=4" 
+										 	class="user">타이틀</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">고소미</td>
+										<td width=120 align=center bgcolor="ffffff">2023-07-12</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">3</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=3" 
+										 	class="user">타이틀</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">고소미</td>
+										<td width=120 align=center bgcolor="ffffff">2023-07-12</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">2</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=2" 
+										 	class="user">변경타이틀</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">게스트</td>
+										<td width=120 align=center bgcolor="ffffff">2023-07-12</td>
+									</tr>
+									<tr >
+										<td width=50 align=center bgcolor="ffffff" height="20">0</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
+										 <a href="guest_view?guest_no=0" 
+										 	class="user">daas</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">dsa</td>
+										<td width=120 align=center bgcolor="ffffff">2023-09-08</td>
+									</tr>
+								</table>
+							</form> <br> <!-- button -->
+							<table border="0" cellpadding="0" cellspacing="1" width="590">
+								<tr>
+									<td align="right"><input type="button"
+										onclick="guestCreateForm();" value="방명록 쓰기" /></td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- wrapper content end-->
+		<!-- footer start-->
+		<div id="footer"><p align="center">Copyright
+	(&copy;) By Kimkyoungho.[김경호] All rights reserved.</p></div>
+		<!-- footer end -->
+	</div>
+	<!--container end-->
+</body>
+</html>

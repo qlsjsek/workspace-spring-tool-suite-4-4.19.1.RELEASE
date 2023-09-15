@@ -1,0 +1,11 @@
+server:
+  port: 80
+  servlet:
+    context-path: /guest_spring_thymeleaf
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@182.237.126.19:1521:XE
+    username: jdeveloper60
+    password: jdeveloper60
+
+    

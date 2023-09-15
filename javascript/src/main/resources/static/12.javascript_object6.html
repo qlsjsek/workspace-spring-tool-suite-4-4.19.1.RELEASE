@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="Student_package.js">
+	</script>
+	<script type="text/javascript">
+		/****************학생객체****************/
+		let studentArray = [
+			new com.itwill.Student('xxx', '김', 23, 56, 78),
+			new com.itwill.Student('yyy', '이', 45, 67, 90),
+			new com.itwill.Student('zzz', '박', 11, 45, 20)
+		];
+	</script>
+</head>
+
+<body>
+	<h1>package정의</h1>
+	<hr>
+	<script type="text/javascript">
+		document.write('--------------student 리스트---------------------<br>');
+		for (let i = 0; i < studentArray.length; i++) {
+			studentArray[i].calculateTot();
+			studentArray[i].calculateAvg();
+			document.write(studentArray[i].toString() + "<br>");
+		}
+	</script>
+</body>
+
+</html>

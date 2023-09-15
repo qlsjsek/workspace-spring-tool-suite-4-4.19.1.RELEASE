@@ -1,0 +1,105 @@
+<!-- 
+/************String,Wrapper속성객체*************/
+		request.setAttribute("a", new String("String속성객체[developer]"));
+		request.setAttribute("b", new Integer(2));
+		request.setAttribute("c", new Boolean(true));
+		request.setAttribute("d", "String속성객체");
+		request.setAttribute("e", 3);
+		request.setAttribute("f",false);
+		/***********자바빈 속성객체**********************/
+		request.setAttribute("guest", new Guest(1,"KIM","2023/10/02","guard@gmail.com","http://www.gmail.com","타이틀","컨텐트"));
+		request.setAttribute("user", new User("guard","1111","가아드","guard@gmail.com"));
+		/***********List(array)속성객체*****************/
+		List<Guest> guestList=new ArrayList<Guest>();
+		guestList.add(new Guest(1,"KIM","2023/10/02","guard1@gmail.com","http://www.gmail.com","타이틀1","컨텐트1"));
+		guestList.add(new Guest(2,"GIM","2023/10/03","guard2@gmail.com","http://www.gmail.com","타이틀2","컨텐트2"));
+		guestList.add(new Guest(3,"FIM","2023/10/04","guard3@gmail.com","http://www.gmail.com","타이틀3","컨텐트3"));
+		request.setAttribute("guestList", guestList);
+		/***********Map 속성객체************************/
+		Map<String,User> userMap=new HashMap<String,User>();
+		userMap.put("guard1", new User("guard1","1111","가드1","guard1@gmail.com"));
+		userMap.put("guard2", new User("guard2","2222","가드2","guard2@gmail.com"));
+		userMap.put("guard3", new User("guard3","3333","가드3","guard3@gmail.com"));
+		request.setAttribute("userMap", userMap);
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body >
+	<div style="width: 800px; margin: 0 auto 0 auto">
+
+		<h1>Thymeleaf</h1>
+		<hr>
+		<ul>
+			<li>######### $,#,*,~ ##########</li>
+			<li>***********[1] String,Wrapper속성객체출력***************
+				<ul>
+					<li  th:text="${a}">String속성객체[publisher]</li>
+					<li  th:text="${b}">2[publisher]</li>
+					<li  th:text="${c}">true[publisher]</li>
+					<li  th:text="${d}">String속성객체[publisher]</li>
+					<li  th:text="${e}">3[publisher]</li>
+					<li  th:text="${f}">false[publisher]</li>
+				</ul>
+			</li>
+			<li>***********[2] 자바빈 속성객체출력*************************
+				<ul th:object="${guest}">
+					<li th:text="${guest}">com.itwill.thymeleaf.domain.Guest@303e2478</li>
+					<li th:text="*{guest_no}">1</li>
+					<li th:text="*{guest_name}">KIM</li>
+					<li th:text="*{guest_email}">guard@gmail.com</li>
+					<li th:text="*{guest_homepage}">http://www.gmail.com</li>
+					<li th:text="*{guest_title}">http://www.gmail.com</li>
+				</ul>
+			</li>
+			<li>***********[3] List(array)속성객체출력*********************
+				<ul>
+					<li th:text="${guestList}" >[com.itwill.thymeleaf.domain.Guest@73f01c1d, com.itwill.thymeleaf.domain.Guest@66445002, com.itwill.thymeleaf.domain.Guest@3372df7d]</li>
+					<li th:text="${guestList[0]}">com.itwill.thymeleaf.domain.Guest@73f01c1d</li>
+					<li th:text="${guestList[0].guest_no}">1</li>
+					<li th:text="${guestList[0].guest_name}">KIM</li>
+					<li th:text="${guestList[0].guest_email}">guard1@gmail.com</li>
+					<li th:text="${guestList[0].guest_homepage}">http://www.gmail.com</li>
+				</ul>
+				
+				<ul th:each="guest:${guestList}">
+					<li th:text="|${guest.guest_no},${guest.guest_name},${guest.guest_email}|">KIM</li>
+				</ul>
+			</li>
+			<li>***********[4] Map 속성객체출력****************************
+				<ul th:object="${userMap['guard3']}">
+					<li th:text="*{userId}"></li>
+					<li th:text="*{password}"></li>
+					<li th:text="*{name}"></li>
+					<li th:text="*{email}"></li>
+				</ul>
+				<hr/>
+				<ul th:each="userEntry:${userMap}">
+					<li th:text="${userEntry.value}">com.itwill.thymeleaf.domain.User@b93f5ba</li>
+					<li th:text="${userEntry.value.userId}">guard1</li>
+					<li th:text="${userEntry.value.password}">1111</li>
+					<li th:text="${userEntry.value.name}">가드1</li>
+					<li th:text="${userEntry.value.email}">guard1@gmail.com</li>
+				</ul>
+			</li>
+			<li>***********Thymeleaf 로칼변수출력****************************
+				<ul th:with="str1='Local Thymeleaf',int1=23423423,localUser=${user}">
+					<li th:text="${str1}">난 Thymeleaf 로칼변수</li>
+					<li th:text="${int1}">1234</li>
+					<li th:text= ${localUser}>com.itwill.thymeleaf.domain.User@13e18a9e</li>
+					<li th:text="${localUser.userId}">guard</li> 
+				</ul>
+			</li>
+			<li>***********국제화****************************
+				<ul>
+					<li th:text="#{title.main}"></li>
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+</body>
+</html>

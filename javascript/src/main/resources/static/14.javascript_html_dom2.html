@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let count=0;
+	function create() {
+		/*
+		<div id="newDiv1" style="border: 1px dotted gold;">
+			<img src='p_red.png' width='20px' height='20px'/>
+			새로생성된DIV1 의 TextNode
+			<img src='p_blue.png' width='20px' height='20px'/>
+		</div>
+		*/
+		/*
+		<< Node생성기능 document객체만가지는 기능 >>
+		1.div Element(tag)
+		 */
+		count++;
+		let newDivE = document.createElement("div");
+		newDivE.setAttribute("id","newDiv"+count);
+		
+			/*
+			1-1.TextNode생성
+			 */
+		   let textMessage=`새로생성된 id=newDiv${count} 인 div태그  의 TextNode`; 
+		   let newTextNode=
+		   			document.createTextNode(textMessage);
+			/*
+			1-2.img Element생성
+				<img src='p_red.png' width='20px' height='20px'/>
+			 */
+			let newImageE1 = document.createElement("img");
+			newImageE1.setAttribute('src','p_red.png');
+			newImageE1.setAttribute('width','20px');
+			newImageE1.setAttribute('height','20px');
+			 
+			newDivE.appendChild(newImageE1); 
+			newDivE.appendChild(newTextNode);
+			
+		/*
+		2.DOM Tree에추가
+		 */
+	   let parentDivE = document.getElementById('parent');
+	   parentDivE.appendChild(newDivE);
+	}
+	function remove() {
+	  if(count==0)return;
+	  let removeDivE=document.getElementById('newDiv'+count);
+	  let parentDivE=document.getElementById('parent');
+	  parentDivE.removeChild(removeDivE);
+	  count--; 
+	}
+	let imageNo=1;
+	function update() {
+	   let bodyE = document.body;
+	   bodyE.style.backgroundImage="url('penguin"+imageNo+".gif')";
+	   bodyE.style.backgroundRepeatX='no-repeat';
+	   bodyE.style.backgroundRepeatY='no-repeat';
+	   imageNo++;
+	   imageNo=imageNo%3+1;
+	}
+</script>
+</head>
+<body onmousemove="update();">
+	<h1>HTML DOM객체 CRUD</h1>
+	<hr>
+	<div id='parent'>
+		<!-- 
+		<div id="newDiv1" style="border: 1px dotted gold;">
+			새로생성된DIV1 의 TextNode
+		</div>
+ 		-->
+	</div>
+	<div id='menu' >
+		<input type="button" value="DOM Tree Node 추가" onclick="create()"> 
+		<input type="button" value="DOM Tree Node 삭제" onclick="remove()"> 
+		<input type="button" value="DOM Tree Node 수정" onclick="update()">
+	</div>
+
+</body>
+</html>

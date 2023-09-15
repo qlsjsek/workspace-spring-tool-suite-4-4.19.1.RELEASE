@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text="'Hello Thymeleaf!!![developer]'">Hello Thymeleaf!!![publisher]</h1><hr>
+<div th:text="${sUserId} +' 님안녕하세요'">user 님안녕하세요</div>
+<hr>
+<h1 >[['Hello Thymeleaf!!![developer]']]</h1><hr>
+<div>[[${sUserId} +' 님안녕하세요']]</div>
+<div>
+	<a href='#'  th:if="${sUserId != null}">로그아웃</a>
+	<a href='#'  th:if="${sUserId == null}">로그인</a>
+</div>
+<br>
+<th:block th:if="${sUserId}!=null">
+	<a href="">로그아웃</a><br>
+	<a href="">정보보기</a><br>
+	<a href="">정보수정</a><br>
+</th:block>
+<br>
+<th:block th:unless="${sUserId}!=null">
+	<a href="">로그인</a><br>
+	<a href="">회원가입</a><br>
+	<a href="">나가기</a><br>
+</th:block>
+
+
+
+
+
+
+
+</body>
+</html>
