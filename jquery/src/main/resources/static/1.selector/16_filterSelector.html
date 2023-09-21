@@ -42,46 +42,50 @@ td{
 */
 	a{
 		text-decoration: none;
-		cursor: pointer;
+		cursor:progress;
 	}
 	a:link{
-		color: gray;
+		color:yellow;
 	}
 	a:visited{
-		color:maroon;
+		color:green;
 	}
 	a:hover{
 		color:pink;
-		background: cyan;
-		cursor: progress;
+		background: yellow;
+		cursor: crosshair;
 	}
 	a:active{
 		background: white;
 		font-size: 30pt;
 	}
-	h2::first-letter{
-		font-size: 50pt;
-		color:red;
-	}
-	/*
 	tr:first-child{
 		background: green;
 	}
+	
 	td:first-child{
-		background: pink;
+		background: pink;;
 	}
-	tr:last-child{
-		font-size: 30pt;
-		color:blue;
+	td:last-child{
+		border:2px dashed maroon;
 	}
-	*/
+	
+	
+	
 	
 </style>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	window.$(function(){
-		
+		$('tr,td').css('background','white').css('color','black');
+		/********jQuery에서 제공하는 가상(pseudo) 클래스********/
+		$('tr:eq(0)').css('background','green');
+		$('td:eq(39)').css('background','pink');	
+		$('td:eq(0) > td:eq(9)').css('background','orange');	
+		$('td:eq(1) > td:gt(2)').css('background','gold');	
+		$('td:eq(2) > td:odd').css('background','yellow');	
+		$('td:eq(3) > td:even').css('background','gray');	
 	});
 </script>
 </head>

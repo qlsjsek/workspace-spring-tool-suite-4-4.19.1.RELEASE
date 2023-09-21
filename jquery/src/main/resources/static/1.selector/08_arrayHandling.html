@@ -17,9 +17,21 @@
 		/*
 		$.grep();
 		*/
-		
-		
+		/*
+		let filterNameArray= $.grep(memberNameArray,function(name,index){
+			return  name.startsWith('k');
+		});
+		*/
+		let filterNameArray= $.grep(memberNameArray,(name,index)=>  name.startsWith('k')); //function을 기호로 한줄로 사용할경우 return 생략
+		$.each(filterNameArray,(index,name)=> $('.selected1').append(name+" "));
+		$.grep(memberArray,(member,index)=>{
+												return member.address=='경기미';				
+														});
+		$.each(filterMemberArray,(index,member)=>{
+			$('.selected2').append(`[${member.id}]${member.name},${member.address}`);
+		});
 	});
+	
 </script>
 </head>
 <body style="padding: 10px;">

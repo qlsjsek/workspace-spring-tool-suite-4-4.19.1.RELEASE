@@ -27,20 +27,20 @@ td {
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-	
-		/*
-		var tdElementNodeList = document.getElementsByTagName("td")
-		for (var i = 0; i < tdElementNodeList.length; i++) {
-			tdElementNodeList[i].addEventListener("click", function(e) {
+			$('td').click(function(e){
+				
 				console.log("event[표준객체]:"+e);
 				console.log("e.target[표준객체]:"+e.target);
 				console.log(e.target.firstChild.nodeValue);
 				console.log("this   :"+this);
 				console.log(this.firstChild.nodeValue);
+				console.log("e.target[표준객체]--> jQuery 객체:"+$(e.target));
+				console.log("jQuery객체 text 메소드 호출:"+$(e.target).text());
+				
+				console.log($(e.target).text());
 			});
-		}
-		*/
 	});
+
 </script>
 </head>
 

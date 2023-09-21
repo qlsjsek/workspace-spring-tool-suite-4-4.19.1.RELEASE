@@ -6,7 +6,13 @@
 		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				
+				$('div')
+					.css('border','4px solid rgb(0,0,125,0.3)')
+					.css('background','green')
+					.css('color','white');
+				let colorStr=$('div').css('color');
+				console.log(colorStr);
+				console.log('background css string:'+$('div').css('background-color'));
 			});
 		</script>
 	</head>

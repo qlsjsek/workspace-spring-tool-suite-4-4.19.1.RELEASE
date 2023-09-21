@@ -24,19 +24,41 @@
 	$(function(){
 		
 		var memberNameArray=['kim','sim','kang','king','hong'];
+		memberNameArray.sort();
+		memberNameArray.reverse();
+		
 		
 		var memberScoreArray=[89,45,23,98,12];
+		memberScoreArray.sort();
+		memberScoreArray.reverse();
 		
 		var memberArray=[
-				{'id':'guard1','name':'kim1','address':'경기도'},
-				{'id':'guard2','name':'kim2','address':'경기레'},
-				{'id':'guard3','name':'kim3','address':'경기미'},
-				{'id':'guard4','name':'kim4','address':'경기파'},
-				{'id':'guard5','name':'kim5','address':'경기솔'}
+				{'id':'guard5','name':'kim5','address':'경기도',age:34},
+				{'id':'guard3','name':'kim3','address':'경기레',age:24},
+				{'id':'guard1','name':'kim1','address':'경기미',age:20},
+				{'id':'guard2','name':'kim2','address':'경기파',age:50},
+				{'id':'guard4','name':'kim4','address':'경기솔',age:17}
 		];
-		
+		//id순으로 정렬
+		/*
+		memberArray.sort(function(member1,member2){
+			if(member1.id>member2.id){
+				return 1;
+			}else{
+				return -1;
+			}
+		});
+		*/
+		//age순으로 정렬
+		memberArray.sort(function(member1,member2){
+			return member1.age-member2.age;
+		});
 		/*************정렬결과출력**************/
-		
+		$('.sorted1').html(memberNameArray.join(' -> '));
+		$('.sorted2').html(memberScoreArray.join(' -> '));
+		$.each(memberArray,(index,member)=>{
+			$('.sorted3').append(`[${member.id}]${member.name},${member.address},${member.age}<br>`);
+		});
 	});
 	
 	

@@ -6,6 +6,23 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		let h2Text = $('h2').text();
+		$('#title').text(h2Text);
+		$('.contents1').html("<u>jQuery는 오픈소스입니다.</u>");
+		$('.contents2').text("<u>jQuery는 오픈소스입니다.</u>");
+		console.log($('.contents1').text());
+		console.log($('.contents2').html());
+		
+		console.log($('body').html());
+		console.log($('body').text());
+		
+		$('h2').text(function(index,text){
+			if(index%2==0){
+				return `인자로 대입된 함수가 변환한 값[${index}]`;
+			}else{
+				return `인자로 대입된 함수가 변환한 값[${index}]`;
+			}
+		});
 		
 	});
 </script>
