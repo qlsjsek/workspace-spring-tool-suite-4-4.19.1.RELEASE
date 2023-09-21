@@ -17,7 +17,6 @@ import lombok.ToString;
 public class News {
 	@Schema(description = "뉴스번호")
 	private int no;
-	@JsonProperty(value = "newsTitle")
 	private String title;
 	private String company;
 	private String date;

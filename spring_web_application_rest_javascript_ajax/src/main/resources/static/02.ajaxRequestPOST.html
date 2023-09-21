@@ -51,8 +51,10 @@
 		 4=done
 		*/
 		if(xhr.readyState==4){
-			let responseStr = xhr.responseText;
-			document.querySelector('#postResultSpan').innerHTML=responseStr;
+			let responseJsonStr = xhr.responseText;
+			let responseJsonObject= JSON.parse(responseJsonStr);
+			console.log(responseJsonObject);
+			document.querySelector('#postResultSpan').innerHTML=responseJsonObject.msg
 		}else{
 			document.querySelector('#postResultSpan').innerHTML='loading...';
 		}

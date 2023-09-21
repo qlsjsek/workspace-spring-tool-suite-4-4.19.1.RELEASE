@@ -1,25 +1,60 @@
 package com.itwill.ajax.controller;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.itwill.ajax.domain.News;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import jakarta.websocket.server.PathParam;
+@RestController
 public class JSONMessageConverterRestController {
 	
+	
+	@Operation(summary = "뉴스리스트",description = "News 전체를 조회합니다.")
+	@GetMapping(value="/news",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<News> newsTitlesListJson() {
-		return null;
+		return getNewsList();
 	}
-	public News newsTitleJSON() {
-		News news = null;
+	@Operation(summary = "뉴스상세보기",description = "News 번호를 이용해서 News를 조회합니다.")
+	@GetMapping(value = "/news/{no}")
+	public News newsTitleJSON(@PathVariable(name="no") int no) {
+		News news = getNewsList().get(no);
 		return news;
 	}
-	
+	@GetMapping(value = "/map/news",produces = "application/json;charset=UTF-8")
 	public Map<String, Object> newsTitlesMapJson() {
-		return null;
+		int status=1;
+		String msg="";
+		Object data=new ArrayList<>();
+		data=this.getNewsList();
+		Map<String, Object> resultMap=new HashMap<String,Object>();
+		resultMap.put("status", status);
+		resultMap.put("msg", msg);
+		resultMap.put("data", data);
+		return resultMap;
 	}
-	public Map<String, Object> newsTitleMapJson() {
-		return null;
+	@GetMapping(value = "/map/news/{no}",produces = "application/json;charset=UTF-8")
+	public Map<String, Object> newsTitleMapJson(@PathVariable(name="no") int no) {
+		int status=1;
+		String msg="";
+		Object data=new ArrayList<>();
+		data=this.getNewsList().get(no);
+		Map<String, Object> resultMap=new HashMap<String,Object>();
+		resultMap.put("status", status);
+		resultMap.put("msg", msg);
+		resultMap.put("data", data);
+		return resultMap;
 	}
 	private List<News> getNewsList() {
 		List<News> newsList = new ArrayList<News>();

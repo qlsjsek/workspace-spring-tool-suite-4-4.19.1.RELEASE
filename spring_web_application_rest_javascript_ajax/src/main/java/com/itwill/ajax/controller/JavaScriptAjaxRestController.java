@@ -1,21 +1,29 @@
 package com.itwill.ajax.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.itwill.ajax.domain.News;
 
 @RestController
 public class JavaScriptAjaxRestController {
 	/*
 	 << @ResponseBody >> 
 	  - ViewResolver-->View  를 사용하지않는다 
-	  - MessageConverter(text,xml,json)가 클라이언트로 응답한다. 
+	  - MessageConverter(text,xml,json)가 변경한 데이터를 HttpResponse 객체가 클라이언트로 응답한다. 
 	  - @RestController 어노테이션을 사용하면
 	    생략가능하다.
 	 */
+	/*
 	@GetMapping(value="/01.ajaxRequestGET",produces = "text/plain;charset=UTF-8")
 	public String ajaxRequestGET(@RequestParam(name = "id",required = false,defaultValue = "") String id) throws Exception{
 		String msg="";
@@ -43,14 +51,43 @@ public class JavaScriptAjaxRestController {
 	public String server_clock() {
 		return new Date().toLocaleString();
 	}
+	*/
 	
-	/*
-	public Map<String, Object> ajaxRequestGET(String id) throws Exception {
+	
+	@GetMapping(value="01.ajaxRequestGET/{idStr}",produces = "application/json;charset=UTF-8")
+	public Map<String, Object> ajaxRequestGET(@PathVariable(name="idStr") String idStr) throws Exception {
 		int status = 1;
 		String msg = "";
 		Object data = new ArrayList<Object>();
 		
-
+		if(idStr.startsWith("guard")) {
+			status=1;
+			msg="사용가능";	
+		}else {
+			status=2;
+			msg="사용불가능";
+		}
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("status", status);
+		resultMap.put("msg", msg);
+		resultMap.put("data", data);
+		return resultMap;
+	}
+	@PostMapping(value="02.ajaxRequestPOST",produces = "application/json;charset=UTF-8")
+	public Map<String, Object> ajaxRequestGETPOST(@RequestParam(name="id") String idStr) throws Exception {
+		int status = 1;
+		String msg = "";
+		Object data = new ArrayList<Object>();
+		
+		if(idStr.startsWith("guard")) {
+			status=1;
+			msg="사용가능";	
+		}else {
+			status=2;
+			msg="사용불가능";
+		}
+		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("status", status);
 		resultMap.put("msg", msg);
@@ -58,27 +95,13 @@ public class JavaScriptAjaxRestController {
 		return resultMap;
 	}
 
-	public Map<String, Object> ajaxRequestGETPOST() throws Exception {
-		int status = 1;
-		String msg = "";
-		Object data = new ArrayList<Object>();
-
-		
-
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		resultMap.put("status", status);
-		resultMap.put("msg", msg);
-		resultMap.put("data", data);
-		return resultMap;
-	}
-
-	
+	@GetMapping(value = "03.server_clock",produces = "application/json;charset=UTF-8")
 	public Map<String, Object> server_clock() {
 		int status = 1;
 		String msg = "";
 		Object data = new ArrayList<Object>();
 
-		
+		data=new Date().toLocaleString();
 
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("status", status);
@@ -87,13 +110,13 @@ public class JavaScriptAjaxRestController {
 		return resultMap;
 	}
 
-	
+	@GetMapping(value = "04.newsTitlesJSON",produces = "application/json;charset=UTF-8")
 	public Map<String, Object> newsTitlesJSON() {
 		int status = 1;
 		String msg = "";
 		Object data = new ArrayList<Object>();
 
-	
+		data=this.getNewsList();
 
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("status", status);
@@ -152,5 +175,5 @@ public class JavaScriptAjaxRestController {
 		}
 		return result;
 	}
-	*/
+	
 }

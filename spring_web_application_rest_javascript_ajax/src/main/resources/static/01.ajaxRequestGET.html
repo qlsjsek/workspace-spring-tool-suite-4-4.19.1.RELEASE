@@ -19,7 +19,7 @@
 			/*
 			2. 요청속성설정 
 			*/
-			xhr.open('GET','01.ajaxRequestGET?id='+idStr,true);
+			xhr.open('GET',`01.ajaxRequestGET/${idStr}`,true);
 			/*
 			XMLHttpRequest객체의 onload 이벤트프로퍼티에 콜백함수등록
 			(응답이 도착했을때 실행되는 사용자정의 콜백함수등록)
@@ -46,10 +46,12 @@
 		 */
 		if(xhr.readyState==4){
 			/*데이타 응답이완전히 이루어졌을때*/
-			let msg=xhr.responseText;
+			let jsonStr=xhr.responseText;
+			let jsonObject=JSON.parse(jsonStr);
+			console.log(jsonObject);
 			let spanE=document.getElementById('msg');
-			spanE.innerHTML=msg;
-			if(msg=='사용가능'){
+			spanE.innerHTML=jsonObject.msg;
+			if(jsonObject.status==1){
 				spanE.style.color='green';
 			}else{
 				spanE.style.color='red';

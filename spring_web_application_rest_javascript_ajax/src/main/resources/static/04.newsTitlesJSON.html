@@ -44,19 +44,43 @@
 <script type="text/javascript" src="ajaxRequest.js"></script>
 <script type="text/javascript">
 	
-	function requestNews() {
-	  
-	}
 	
-	function responseNews() {
+	
+	function responseNews(xhr) {
 	    
-	   //console.log(xhr.responseText);
+	   console.log(xhr.responseText);
 		/*
 		<< 서버로부터받은데이타[JSON] >>
-		
+		{
+			"status": 1,
+			"msg": "성공",
+			"data": [
+					{
+						"title":"뉴스1",
+						"company":"한국일보",
+						"date":"2023-11-15"
+					},
+					{
+						"title":"뉴스2",
+						"company":"대한일보",
+						"date":"2023-11-15"
+					}
+					]
+		}
 		*/
-		
-		
+		let responseJsonStr=xhr.responseText;
+		/* JSON 문자열 -- JSON Object로 파싱*/
+		let responseJsonObject=JSON.parse(responseJsonStr);
+		let newsJsonArray=responseJsonObject.data;
+		let htmlTemplate=`<ul>`;
+		for(let i=0;i<newsJsonArray.length;i++){
+			let title=newsJsonArray[i].title;
+			let company=newsJsonArray[i].company;
+			let date=newsJsonArray[i].date;
+			htmlTemplate+=`<li>${title}[${company}-${date}][JSON]</li>`;
+		}
+		htmlTemplate+=`<ul>`;
+			document.querySelector('#newsDiv').innerHTML=htmlTemplate;
 		/*	
 		<< 보여줘야할데이타[HTML] >>
 		<ul>
@@ -71,10 +95,13 @@
 			<li>한국인들 실직·이직 공포에 시달린다[ITWILL뉴스-2021. 4. 14 오후 12:33:32]</li>
 		</ul>
 		 */
-			
 		
 	}
-	
+	window.addEventListener('load',function(){
+		window.setInterval(function(){
+			 ajaxRequest('GET','04.newsTitlesJSON',null,responseNews);
+		},3000);
+	});
 </script>
 </head>
 <body>

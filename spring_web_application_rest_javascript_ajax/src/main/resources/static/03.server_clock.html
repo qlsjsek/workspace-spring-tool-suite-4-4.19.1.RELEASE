@@ -12,7 +12,7 @@
 	function responseCallbackFunction(xhr){
 		
 		if(xhr.readyState==4){
-			document.querySelector('#serverTimeSpan').innerHTML=xhr.responseText;
+			document.querySelector('#serverTimeSpan').innerHTML=JSON.parse(xhr.responseText).data;
 		}
 	}
 	window.onload = function(){
