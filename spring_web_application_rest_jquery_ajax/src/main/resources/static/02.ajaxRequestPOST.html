@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#id').keyup(function(e){
+		let idStr=$(e.target).val();
+		if(idStr.trim()=='')return;
+		
+		/*
+		jQuery ajax요청
+		*/
+		$.ajax({
+			url:`02.ajaxRequestPOST/${idStr}`,
+			method:'POST',
+			data:{},
+			/*요청시전송데이터타입*/
+			contentType:'application/json;chrset=UTF-8',
+			/*응답받는데이터타입*/
+			type:'json',
+			beforSend:function(){
+				$('#msg').html("<img src='loading.gif' width='20px' height='20px'/>");
+			},
+			/*응답성공후실행되는함수*/
+			success:function(responseJsonObject){
+				if(responseJsonObject.status==1){
+					$('#msg')
+						.html(responseJsonObject.msg)
+						.css('color','green');
+				}else if(responseJsonObject.status==2){
+						$('#msg')
+						.html(responseJsonObject.msg)
+						.css('color','orange');
+				}
+			},
+			error:function(xhr,textStatus){
+				alert('error:'+xhr.status);
+			}
+		});
+		
+	});		
+	
+});
+</script>
+</head>
+<body>
+<h1>AJAX POST 요청</h1><hr/>
+<form name="f" id="f" action="">
+	아이디:<input type="text" name="id" id="id"  >
+	<span id="msg"></span>
+</form>
+</body>
+</html>

@@ -42,7 +42,33 @@ window.jQuery=function(arg){
 		window.addEventListener('load',arg);
 	}else if(typeof arg=='object'){
 		
-		
+		let elementNodeList=[arg];
+		let jqueryWrapperObject={
+			'elementNodeList':elementNodeList,
+			'css':function(propertyName,propertyValue){
+				for(let i=0;i<this.elementNodeList.length;i++){
+					this.elementNodeList[i].style.cssText=`${propertyName}:${propertyValue}`;
+				}
+				return this;
+			},
+			'text':function(textArg){
+				if(textArg != undefined){
+					//set text
+					for(let i=0;i<this.elementNodeList.length;i++){
+						this.elementNodeList[i].innerHTML=textArg;
+					}
+					return this;
+				}else{
+					//get text
+					let returnText="";
+					for(let i=0;i<this.elementNodeList.length;i++){
+						returnText+=this.elementNodeList[i].innerHTML;
+					}
+					return returnText;
+				}
+			}
+		};
+		return jqueryWrapperObject;
 	}
 }
 window.$=window.jQuery;

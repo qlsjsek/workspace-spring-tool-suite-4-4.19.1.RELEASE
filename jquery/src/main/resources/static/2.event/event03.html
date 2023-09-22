@@ -21,9 +21,45 @@
 	let enterCount=0;
 	let leaveCount=0;
 	$(function(){
-		
-		
-		
+		$('h2').click(function(e){
+			console.log("e.target:"+e.target);
+			console.log("$(e.target):"+$(e.target));
+			$(e.target).html('jQuery에서 제공하는 Event 핸들링 메소드'+clickCount++);
+		});
+		/*
+		$('#mouseArea').mouseenter(function(e){
+			enterCount++;
+			$('#spResult').html(
+				`
+				mouse enter count:${enterCount}<br>
+				mouse leave count:${leaveCount}
+				`
+			);
+		});
+		$('#mouseArea').mouseleave(function(e){
+			leaveCount++;
+			$('#spResult').html(
+				`
+				mouse enter count:${enterCount}<br>
+				mouse leave count:${leaveCount}
+				`
+			);
+		});
+		*/
+		$('#mouseArea').on('mouseenter mouseleave',function(e){
+			console.log(e.type);
+			if(e.type=='mouseenter'){
+				enterCount++;
+			}else if(e.type=='mouseleave'){
+				leaveCount++;
+			}
+			$('#spResult').html(
+				`
+				mouse enter count:${enterCount}<br>
+				mouse leave count:${leaveCount}
+				`
+			);
+		});
 	});
 </script>
 

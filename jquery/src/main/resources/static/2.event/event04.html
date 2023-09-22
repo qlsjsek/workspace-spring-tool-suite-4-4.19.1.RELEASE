@@ -25,10 +25,16 @@ $(function() {
 	/*
 	현재DOM Tree의 ul 에 자식으로 동적으로추가되는 li 엘레멘트도 이벤트처리
 	*/
-	
+	$('ul').on('click','li',function(e){
+		alert($(e.target).text());
+	});
 	/*
 	동적노드추가버튼 이벤트처리
 	*/
+	$('#btnAdd').click(function(){
+		let item_no = $('li').length;
+		$('ul').append(`<li>list item ${item_no}</li>`);
+	});
 	
 });
 

@@ -26,10 +26,22 @@ td {
 		
 			/*
 			폼을이용한 서버로의 jquery ajax요청
-			1.parameter생성
+			1.parameter(json data)생성
 			2.jquery ajax요청
 			3.submit default중지
 			*/
+			$('#f').on('submit',function(e){
+				alert('submit-->');
+				let parameter1 = $('#f').serialize();
+				let parameter2 = $(e.target).serialize();
+				let jsonArray = $(e.target).serializeArray();
+				console.log(parameter1);
+				console.log(parameter2);
+				console.log(jsonArray);
+				
+				e.preventDefault();
+			});
+			
 			/*
 			$('#f').on('submit',function(e){
 				
