@@ -1,105 +1,93 @@
 package com.itwill.jpa.repository;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.Optional;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.itwill.jpa.SpringBootJpaApplicationTests;
+import com.itwill.SpringJpaApplicationTests;
 import com.itwill.jpa.entity.User;
 
-public class UserRepositoryTest extends SpringBootJpaApplicationTests{
+class UserRepositoryTest extends SpringJpaApplicationTests{
 	@Autowired
 	UserRepository userRepository;
+	
 	@Test
-	void users_crud() {
-		/*******insert*******
-		User user1=new User("김경호1", "guard1@gmail.com",LocalDateTime.now(),LocalDateTime.now());
-		User user2=new User("김경호2", "guard2@gmail.com",LocalDateTime.now(),LocalDateTime.now());
-		User user3=new User("김경호3", "guard3@gmail.com",LocalDateTime.now(),LocalDateTime.now());
-		User saveUser1=userRepository.save(user1);
-		User saveUser2=userRepository.save(user2);
-		User saveUser3=userRepository.save(user3);
-		System.out.println(">>> saveUser1:"+saveUser1);
-		System.out.println(">>> saveUser2:"+saveUser2);
-		System.out.println(">>> saveUser3:"+saveUser3);
-		*/
-		/*******find********
-	 	Optional<User> optionalUser1= userRepository.findById(1L);
-	 	if(optionalUser1.isPresent()) {
-	 		User findUser1 = optionalUser1.get();
-	 		System.out.println(">>> findUser1:"+findUser1);
-	 	}
-	 	*/
-	 	/*****findAll*****
-	 	List<User> userList = userRepository.findAll();
-	 	System.out.println(">>> userList:"+userList);
-	 	*/
-	 	/*****update*****
-	 	Optional<User> optionalUser2= userRepository.findById(3L);
-	 	if(optionalUser2.isPresent()) {
-	 		User findUser2=optionalUser2.get();
-	 		findUser2.setName("김경호삼");
-	 		findUser2.setEmail("three@gmail.com");
-	 		findUser2.setUpdatedAt(LocalDateTime.now().plusDays(1L));
-	 		User updatedUser2= userRepository.save(findUser2);
-	 		System.out.println(">>>updatedUser2:"+updatedUser2);
-	 	}
-	 	*/
-	 	/*****delete*****
-	 	userRepository.deleteById(3L);
-	 	userRepository.delete(saveUser1);
-	 	
-	 	userList = userRepository.findAll();
-	 	System.out.println(">>> userList:"+userList);
-	 	*/
-	}
-	@Test
-	void select() {
-		//System.out.println(">>> findByName:"+userRepository.findByName("김경호1"));
-		//System.out.println(">>> findByEmail:"+userRepository.findByEmail("guard2@gmail.com"));
-		//System.out.println(">>> findByNameAndEmail:"
-		//		+userRepository.findByNameAndEmail("김경호3","guard3@gmail.com"));
-		//System.out.println(">>> findByNameOrEmail:"
-		//		+userRepository.findByNameOrEmail("김경호3","guard2@gmail.com"));
-		
-//		System.out.println(">>> findFirst2ByName:"
-//				+userRepository.findFirst2ByName("김경호11"));
-//		
-//		System.out.println(">>> findTop2ByName:"
-//				+userRepository.findTop2ByName("김경호11"));
-
-//		System.out.println(">>> findByIdAfter:"
-//				+userRepository.findByIdAfter(7L));
-//		System.out.println(">>> findByIdBetween:"
-//				+userRepository.findByIdBetween(7L,12L));
-//		System.out.println(">>> findByCreatedAtGreaterThan:"
-//				+
-//				userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)).size());
-//		System.out.println(">>> findByCreatedAtGreaterThanEqual:"
-//				+userRepository.findByCreatedAtGreaterThanEqual(
-//						LocalDateTime.now().minusDays(1L)).size());
-//		System.out.println(userRepository.findByNameSQL("김경호11"));
-		//System.out.println(">>> findByNameContains:"+userRepository.findByNameContains("경호").size());
-		//System.out.println(">>> findByNameStartingWith:"+userRepository.findByNameStartingWith("김경호11").size());
-		//System.out.println(">>> findByNameEndingWith:"+userRepository.findByNameEndingWith("11").size());
-		//System.out.println(">>> findByNameLike:"+userRepository.findByNameLike("%"+"경호"+"%").size());
-		
-		
-		
+	void customSelect() {
+		System.out.println(">>>findByName				:"+userRepository.findByName("김경호1"));
+		System.out.println(">>>findByEmail				:"+userRepository.findByEmail("guard2@gmail.com"));
+		System.out.println(">>>findByNameAndEmail		:"+userRepository.findByNameAndEmail("김경호3", "guard3@gmail.com"));
+		System.out.println(">>>findByNameOrEmail		:"+userRepository.findByNameOrEmail("김경호3", "guard2@gmail.com"));
+		System.out.println(">>>findFirst2ByName			:"+userRepository.findFirst2ByName("김경호11"));
+		System.out.println(">>>findTop2ByName			:"+userRepository.findTop2ByName("김경호11"));
+		System.out.println(">>>findByNameSQL			:"+userRepository.findByNameSQL("김경호11"));
+		System.out.println(">>>findByNameContains		:"+userRepository.findByNameContains("경호").size());
+		System.out.println(">>>findByNameStartingWith	:"+userRepository.findByNameStartingWith("김경호11").size());
+		System.out.println(">>>findByNameEndingWith		:"+userRepository.findByNameEndingWith("11").size());
+		System.out.println(">>>findByNameLike			:"+userRepository.findByNameLike("%"+"경호"+"%").size());
 	}
 	
+	@DisplayName("회원삭제")
+	@Test
+	//@Disabled
+	@Transactional
+	@Rollback(value=false)
+	void delete() {
+		userRepository.deleteById("guard20");
+		
+		userRepository.delete(userRepository.findById("guard19").get());
+	}
+	
+	@DisplayName("회원수정")
+	@Test
+	//@Disabled
+	@Transactional
+	@Rollback(value = true)
+	void update() {
+		User findUser1=userRepository.findById("guard1").get();
+		findUser1.setName("제임스");
+		findUser1.setEmail("james@gmail.com");
+		//userRepository.save(findUser1);
+	}
+	
+	@DisplayName("회원가입")
+	@Test
+	//@Disabled
+	void testSave() {
+		User user1=User.builder()
+						.userId("guard21")
+						.password("1111")
+						.email("guard1@naver.com")
+						.name("네임")
+							.build();
+		User saveUser1=userRepository.save(user1);
+		System.out.println(saveUser1);
+		User user2=User.builder()
+				.userId("guard22")
+				.password("2222")
+				.email("guard2@naver.com")
+				.name("이름")
+				.build();
+		User saveUser2=userRepository.save(user2);
+		System.out.println(saveUser1);
+		System.out.println(saveUser2);
+	}
+	@DisplayName("회원아이디로찾기")
+	@Test
+	//@Disabled
+	void testFindById() {
+		Optional<User> optionalUser=userRepository.findById("guard1");
+		if(optionalUser.isPresent()) {
+			User findUser1=optionalUser.get();
+			System.out.println(findUser1);
+		}
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
