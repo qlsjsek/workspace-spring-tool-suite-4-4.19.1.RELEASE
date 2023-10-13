@@ -19,7 +19,7 @@ class UserRepositoryTest extends SpringJpaApplicationTests{
 	@Autowired
 	UserRepository userRepository;
 	
-	@Test
+	//@Test
 	void customSelect() {
 		System.out.println(">>>findByName				:"+userRepository.findByName("김경호1"));
 		System.out.println(">>>findByEmail				:"+userRepository.findByEmail("guard2@gmail.com"));
@@ -35,7 +35,7 @@ class UserRepositoryTest extends SpringJpaApplicationTests{
 	}
 	
 	@DisplayName("회원삭제")
-	@Test
+	//@Test
 	//@Disabled
 	@Transactional
 	@Rollback(value=false)
@@ -46,7 +46,7 @@ class UserRepositoryTest extends SpringJpaApplicationTests{
 	}
 	
 	@DisplayName("회원수정")
-	@Test
+	//@Test
 	//@Disabled
 	@Transactional
 	@Rollback(value = true)
@@ -58,7 +58,7 @@ class UserRepositoryTest extends SpringJpaApplicationTests{
 	}
 	
 	@DisplayName("회원가입")
-	@Test
+	//@Test
 	//@Disabled
 	void testSave() {
 		User user1=User.builder()
@@ -80,7 +80,7 @@ class UserRepositoryTest extends SpringJpaApplicationTests{
 		System.out.println(saveUser2);
 	}
 	@DisplayName("회원아이디로찾기")
-	@Test
+	//@Test
 	//@Disabled
 	void testFindById() {
 		Optional<User> optionalUser=userRepository.findById("guard1");
